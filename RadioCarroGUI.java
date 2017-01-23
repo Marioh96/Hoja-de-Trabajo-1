@@ -1,6 +1,7 @@
 /*Universidad del Valle de Guatemala
 * Algoritmos y Estructuras de datos
 * Mario Hernandez, carne 15135
+* Henry Gomez, carne 15703
 * Luis Carlo Ramirez, carne 15019
 
 * RadioCarroGUI.java
@@ -8,7 +9,7 @@
 */
 public class RadioCarroGUI extends javax.swing.JFrame {
     
-    RadioCarro nuevo = new RadioCarro();
+    Radio nuevo = new Radio();
     boolean estado1;
     public RadioCarroGUI() {
         initComponents();
@@ -196,12 +197,12 @@ public class RadioCarroGUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText(String.valueOf(nuevo.getEmisora()));
+        jLabel2.setText(String.valueOf(nuevo.getStation()));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("jLabel3");
-        if (nuevo.getFrecuencia()==true){
+        if (nuevo.getFrecuency()==true){
             jLabel3.setText("FM");
         }
         else{
@@ -399,9 +400,9 @@ public class RadioCarroGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        estado1 = nuevo.getEncendido();
-        nuevo.setEncendido(estado1);
-        if(nuevo.getEncendido()==true){
+        estado1 = nuevo.getisOn();
+        nuevo.isOn(estado1);
+        if(nuevo.getisOn()==true){
             jLabel1.setVisible(true);
             jLabel2.setVisible(true);
             jLabel3.setVisible(true);
@@ -424,59 +425,59 @@ public class RadioCarroGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        boolean frecuencia1=nuevo.getFrecuencia();
-        nuevo.setFrecuencia(frecuencia1);
-        if (nuevo.getFrecuencia()==true){
+        boolean frecuencia1=nuevo.getFrecuency();
+        nuevo.setFrecuency(frecuencia1);
+        if (nuevo.getFrecuency()==true){
             jLabel3.setText("FM");
-            nuevo.setEmisora(87.9);
-            jLabel2.setText(String.valueOf(nuevo.getEmisora()));
+            nuevo.setStation(87.9);
+            jLabel2.setText(String.valueOf(nuevo.getStation()));
         }
         else{
             jLabel3.setText("AM");
-            nuevo.setEmisora(530);
-            jLabel2.setText(String.valueOf(nuevo.getEmisora()));
+            nuevo.setStation(530);
+            jLabel2.setText(String.valueOf(nuevo.getStation()));
         }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        if (nuevo.getFrecuencia()==true){
-            if (nuevo.getEmisora()<107.9){
-                nuevo.setEmisora((nuevo.getEmisora()+0.2));
+        if (nuevo.getFrecuency()==true){
+            if (nuevo.getStation()<107.9){
+                nuevo.setStation((nuevo.getStation()+0.2));
             }
             else{
-                nuevo.setEmisora(87.9);
+                nuevo.setStation(87.9);
             }
         }
         else{
-            if (nuevo.getEmisora()<1610){
-                nuevo.setEmisora((nuevo.getEmisora()+10));
+            if (nuevo.getStation()<1610){
+                nuevo.setStation((nuevo.getStation()+10));
             }
             else{
-                nuevo.setEmisora(530);
+                nuevo.setStation(530);
             }
         }
-        double nuevaEmisora = Math.floor(nuevo.getEmisora()*10)/10;
+        double nuevaEmisora = Math.floor(nuevo.getStation()*10)/10;
         jLabel2.setText(String.valueOf(nuevaEmisora));
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        if (nuevo.getFrecuencia()==true){
-            if (nuevo.getEmisora()>87.9){
-                nuevo.setEmisora((nuevo.getEmisora()-0.2));
+        if (nuevo.getFrecuency()==true){
+            if (nuevo.getStation()>87.9){
+                nuevo.setStation((nuevo.getStation()-0.2));
             }
             else{
-                nuevo.setEmisora(107.9);
+                nuevo.setStation(107.9);
             }
         }
         else{
-            if (nuevo.getEmisora()>530){
-                nuevo.setEmisora((nuevo.getEmisora()-10));
+            if (nuevo.getStation()>530){
+                nuevo.setStation((nuevo.getStation()-10));
             }
             else{
-                nuevo.setEmisora(1610);
+                nuevo.setStation(1610);
             }
         }
-        double nuevaEmisora = Math.floor(nuevo.getEmisora()*10)/10;
+        double nuevaEmisora = Math.floor(nuevo.getStation()*10)/10;
         jLabel2.setText(String.valueOf(nuevaEmisora));
     }//GEN-LAST:event_jButton17ActionPerformed
 
